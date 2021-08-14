@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgba(191, 124, 230, 0.671);
+
+}
+div{
+    font-weight: bold;
+}
+.row{
+    padding-top: 10px;
+}
+.posterdiv{
+    padding-top: 5px;
+}
+.poster1{
+    background-size: 100%;
+
+}
+.bookingslot{
+    width: 80%;
+    height: 100%;
+    padding: 10px 10px 10px 10px;
+    border:2px solid black;
+    border-radius: 18px;
+
+}
+.posterdiv{
+    width:30%;
+    height:80%;
+
+}

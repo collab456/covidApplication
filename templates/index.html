@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel = "stylesheet" href="{% static 'style.css' %}">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgba(136, 88, 163, 0.671);
+        
+        }
+        div{
+            font-weight: bold;
+        }
+        .row{
+            padding-top: 10px;
+        }
+        .posterdiv{
+            padding-top: 5px;
+        }
+        .poster1{
+            background-size: 100%;
+        
+        }
+        .bookingslot{
+            width: 80%;
+            height: 100%;
+            padding: 10px 10px 10px 10px;
+            border:2px solid black;
+            border-radius: 18px;
+        
+        }
+        .posterdiv{
+            width:30%;
+            height:80%;
+        
+        }
+
+
+
+    </style>
+
+    <title>covidApp</title>
+    
+</head>
+<body>
+    
+    <!-- <form action='add' method='post'>
+        {% csrf_token %}
+        <input type = "text" name="num1"><br>
+        <input type = "text" name = "num2"><br>
+        <input type="submit">
+
+    </form>
+    <h2> 
+        Answer = {{answer}}
+    </h2> -->
+    
+    
+
+    <div class = "container-fluid" >
+        <div style="background-color: rgb(42, 94, 136);" class="navbar cintainer-fluid" >
+            <p><h1 style="text-align: center; "><b>Covid Help Center</b></h1></p>
+        </div>
+
+        <div style="margin-top:10px" class="row">
+
+            <!-- <div class="posterdiv col-sm-4">
+                <img class="poster1" src="{% static 'images/p2.JPG' %}" width="100%" height="100%">
+                
+
+            </div> -->
+            <div class="col-sm-8">
+                <!-- <img class = "poster2" src="{% static 'images/p1.PNG'%}" width="100%" height="100%" >
+                <h1>right div here</h1> -->
+
+                
+
+                <div class="bookingslot">
+                    <form action="search" method="post">
+                        {% csrf_token %}
+                        <h2><b>Search for booking</b></h2>
+                        <p>Total Beds: 66</p>
+                        <p>Available Beds: {{nb}}</p><br>
+
+                        <label for="Patient">Patient's Condition</label>
+                        <select name="Patient">
+                            <option value="Critical">Critical</option>
+                            <option value="High">Highly Affected</option>
+                            <option value="Low">Light Symptoms</option>
+                        </select><br>
+
+                        Pincode:   <input type="text" name="pincode"><br><br>
+                        Hospital: <input type="text" name="hospital"><br><br>
+
+                        <input type="submit" >
+                        <!-- <a href="./"><input style="margin-bottom:30px;margin-left: 10px; background-color:rgba(33, 163, 163, 0.897); border:none" type="button" value="Refresh" class="btn btn-warning" /></a> -->
+
+                        <FORM>
+                            <INPUT TYPE="button" onClick="history.go(0)" VALUE="Refresh">
+                        </FORM>
+
+                    </form>
+
+                    <br>
+                    <form action="book" method="post">
+                        {% csrf_token %}
+                        <h2><b>For bed booking</b></h2><br>
+
+                        <label for="Patient">Patient's Condition</label>
+                        <select name="Patient">
+                            <option value="Critical">Critical</option>
+                            <option value="High">Highly Affected</option>
+                            <option value="Low">Light Symptoms</option>
+                        </select>
+
+                        <p>Hospital: <input type="text" name = "hospital" ></p>
+                        <p>Enter Bed No: <input type="text" name="bed_no"> </p>
+                        <input type="submit" name = "Book"><br>
+
+                        <h3 style="color: red;"> Alert: {{alert}}</h3>
+                    </form>
+                    <FORM>
+                        <INPUT TYPE="button" onClick="history.go(0)" VALUE="Refresh">
+                    </FORM>
+                    <br>
+
+                    <form action="cancel" method="post">
+                        {% csrf_token %}
+                        <h2><b>Booking cancel</b></h2><br>
+
+                        <label for="Patient">Patient's Condition</label>
+                        <select name="Patient">
+                            <option value="Critical">Critical</option>
+                            <option value="High">Highly Affected</option>
+                            <option value="Low">Light Symptoms</option>
+                        </select>
+
+                        <p>Hospital: <input type="text" name = "hospital" ></p>
+                        <p>Enter Bed No: <input type="text" name="bed_no"> </p>
+                        <input type="submit" name = "cancel"><br>
+
+                        <h3 style="color: red;"> Alert: {{msg}}</h3>
+
+                    </form>
+
+
+
+
+                    <!-- {% for hos in val %}
+                    <p></p>
+                    <P> {{hos.Hospital}}  {{hos.Bed_no}}</P>
+                    {% endfor %} -->
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+
+
+
+
+<!-- bootstrap js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
